@@ -1,0 +1,67 @@
+{
+  "input_path": "data/raw/demo5.csv",
+  "output_path": "data/processed/demo5_clean.csv",
+   "drop_duplicates" :true,
+    "drop_nulls" :true,
+  "date_columns": [
+    "Date"
+  ],
+  "date_format_output": "%dd-%mm-%YYYY",
+
+  "numeric_columns": [
+    "Weekly_Sales",
+    "Temperature",
+    "Fuel_Price",
+    "CPI",
+    "Unemployment"
+  ],
+
+  "integer_columns": [
+    "Store",
+    "Holiday_Flag"
+  ],
+
+  "transformations": {
+    "Fuel_Price": {
+      "round": 2
+    },
+    "Date": {
+      "to_string": "%d-%m-%Y"
+    }
+  },
+
+  "derived_columns": [
+    {
+      "name": "Walmart_Sales_Test",
+      "expression": "Fuel_Price * (CPI / 100)",
+      "round": 4
+    },
+    {
+      "name": "Weekly_Sales_USD",
+      "expression": "Weekly_Sales * conversion_rate",
+      "round": 2,
+      "enabled": false
+    }
+  ],
+
+  "cleaning": {
+    "drop_duplicates": true,
+    "drop_na_subset": [
+      "Weekly_Sales",
+      "Date",
+      "Store"
+    ]
+  },
+
+  "conversion_rate": 1.0,
+
+  "dtypes": {
+    "Store": "int16",
+    "Holiday_Flag": "int8",
+    "Weekly_Sales": "float32",
+    "Temperature": "float32",
+    "Fuel_Price": "float32",
+    "CPI": "float32",
+    "Unemployment": "float32"
+  }
+}
