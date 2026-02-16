@@ -1,0 +1,33 @@
+CREATE VIEW vw_Top10_Customers_Last30Days AS
+SELECT  c.full_name, SUM(o.total_amount) AS revenue_30days
+FROM Customers_oltp c JOIN orders_oltp o ON c.customer_id = o.customer_id
+WHERE o.order_date >= (current_date - INTERVAL '30 days') 
+GROUP BY c.customer_id, c.full_name ORDER BY revenue_30days DESC
+limit 10;
+
+select * from vw_Top10_Customers_Last30Days;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
