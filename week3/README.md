@@ -1,5 +1,8 @@
+NYC Taxi Data - Spark ETL Pipeline 🚕
+This project implements a professional Modular ETL Pipeline using PySpark to process New York City Taxi trip data. It demonstrates best practices in Data Engineering includ configuration-driven design, logging, and partitioned data storage.
+
 🏗️ Data Lakehouse on Databricks
-A complete, professional implementation of a Lakehouse architecture using Databricks, structured into Bronze, Silver, and Gold layers and developed as part of the Data with Baraa - Databricks Bootcamp. The project processes bike sales data and includes a fully orchestrated ETL pipeline triggered automatically when new files arrive in the raw volume.
+A complete, professional implementation of a Lakehouse architecture using Databricks, structured into Bronze, Silver, and Gold layers and  Databricks. The project processes bike sales data and includes a fully orchestrated ETL pipeline triggered automatically when new files arrive in the raw volume.
 
 Tech Stack
 Databricks Lakehouse Platform
@@ -24,7 +27,7 @@ withColumn("trip_duration_min",
 
 TIPPED PAYMENT  & PAYMENT TYPE
 .withColumn("tipped", F.when(F.col("tip_amount") > 0, "Yes").otherwise("No")) 
-## Yes Pay tipped    No dont pay tipped or extra money
+## Yes means Pay tipped    No means do not pay tipped or extra money
 \
     .withColumn("payment_label",
         F.when(F.col("payment_type") == 1, "Credit Card")
