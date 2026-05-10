@@ -1,5 +1,5 @@
 {
-    "name": "PL_Get_Products_Data",
+    "name": "Get_Products_Data",
     "properties": {
         "activities": [
             {
