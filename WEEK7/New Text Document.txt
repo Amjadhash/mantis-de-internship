@@ -1,0 +1,1 @@
+Airflow gives MantisAI a scalable, maintainable foundation for complex data and AI workloads. By treating pipelines as code, offloading heavy compute to isolated workers, and providing clear operational UI visibility, Airflow reduces infrastructure overhead and prevents silent pipeline failures.
